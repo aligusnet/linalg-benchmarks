@@ -1,4 +1,5 @@
 import timeit
+import statistics
 
 setup = """\
 import numpy as np
@@ -11,14 +12,47 @@ y = np.random.randn(1000000)
 """
 
 def bench(description, func):
-    number = 100
+    number = 20
     u = timeit.Timer(func, setup=setup)
-    print(description, 1000*u.timeit(number=number)/number, 'ms')
+    res = u.repeat(number=number, repeat=10)
+    res = list(map(lambda x: x/float(number), res))
+    mean = statistics.mean(res)
+    median = statistics.median(res)
+    stdev = statistics.stdev(res)
+    print(description)
+    print_seconds('\tmean', mean)
+    print_seconds('\tmedian', median)
+    print_seconds('\tstddev', stdev)
+
+def print_seconds(desc, v):
+    if v < 1:
+        print_milliseconds(desc, 1000*v)
+    else:
+        print('%s: %.2f s' % (desc, v))
+
+def print_milliseconds(desc, v):
+    if v < 1:
+        print_microseconds(desc, 1000*v)
+    else:
+        print('%s: %.2f ms' % (desc, v))
+
+def print_microseconds(desc, v):
+    if v < 1:
+        print_nanoseconds(desc, 1000*v)
+    else:
+        print('%s: %.2f μs' % (desc, v))
+
+def print_nanoseconds(desc, v):
+    print('%s: %.2f ns' % (desc, v))
 
 
-bench('random matrix', 'np.random.randn(1000, 1000)')
-bench('inv', 'np.linalg.inv(a)')
-bench('Cholesky decomposition', 'np.linalg.cholesky(aTa)')
-bench('vector dot product', 'np.dot(x, y)')
-bench('matrix transpose', 'a.T')
-bench('matrix multiplication', 'np.dot(a, b)')
+def main():
+    bench('random matrix', 'np.random.randn(1000, 1000)')
+    bench('inv', 'np.linalg.inv(a)')
+    bench('Cholesky decomposition', 'np.linalg.cholesky(aTa)')
+    bench('vector dot product', 'np.dot(x, y)')
+    bench('matrix transpose', 'a.T')
+    bench('matrix multiplication', 'np.dot(a, b)')
+
+
+main()
