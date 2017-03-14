@@ -20,5 +20,15 @@ main = do
         , bench "vector dot product" $ whnf (LA.dot x) y
         , bench "matrix transpose" $ nf LA.tr a
         , bench "matrix multiplication" $ nf (a LA.<>) b
+        , bench "sigmoid" $ nf sigmoid a
+        , bench "ReLU" $ nf relu a
         ]
     ]
+
+
+sigmoid :: Floating a => a -> a
+sigmoid z = 1 / (1+exp(-z))
+
+
+relu :: LA.Matrix LA.R -> LA.Matrix LA.R
+relu x = x * (LA.step x)

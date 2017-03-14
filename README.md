@@ -14,6 +14,10 @@
 
 6. Matrix (1000x1000 <> 1000x1000) multiply.
 
+7. Sigmoid
+
+8. ReLU
+
 ## Results
 
 | Benchmark | hmatrix | numpy |
@@ -24,3 +28,5 @@
 | 4. Vector dot product | 1.965 ms | **0.80 ms** |
 | 5. Matrix transpose | **41.80 ns** | 472.0 ns |
 | 6. Matrix multiply | **32.78 ms** | 37.01 ms |
+| 7. Sigmoid | **14.40 ms** | 19.76 ms |
+| 8. ReLU | **3.575 ms** | 7.39 ms |

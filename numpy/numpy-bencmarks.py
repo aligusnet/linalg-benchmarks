@@ -9,6 +9,12 @@ b = np.random.randn(1000, 1000)
 aTa = np.matmul(np.transpose(a), a)
 x = np.random.randn(1000000)
 y = np.random.randn(1000000)
+
+def sigmoid(z):
+    return 1.0/(1.0+np.exp(-z))
+
+def relu(x):
+    return np.maximum(0, x)
 """
 
 def bench(description, func):
@@ -53,6 +59,7 @@ def main():
     bench('vector dot product', 'np.dot(x, y)')
     bench('matrix transpose', 'a.T')
     bench('matrix multiplication', 'np.dot(a, b)')
-
+    bench('sigmoid', 'sigmoid(a)')
+    bench('ReLU', 'relu(a)')
 
 main()
