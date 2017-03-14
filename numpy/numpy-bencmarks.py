@@ -61,5 +61,9 @@ def main():
     bench('matrix multiplication', 'np.dot(a, b)')
     bench('sigmoid', 'sigmoid(a)')
     bench('ReLU', 'relu(a)')
+    bench('sum by rows', 'np.sum(a, axis=1, keepdims=True)')
+    bench('sum by columns', 'np.sum(a, axis=0, keepdims=True)')
+    bench('max index by rows', 'np.argmax(a, axis=1)')
+    bench('max index by columns', 'np.argmax(a, axis=0)')
 
 main()

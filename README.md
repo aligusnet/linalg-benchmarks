@@ -18,6 +18,14 @@
 
 8. ReLU
 
+9. Sum by rows
+
+10. sum by columns
+
+11. indices of max elements in rows
+
+12. indices of max elements in columns
+
 ## Results
 
 * hmatrix: 0.18.0 (haskell: 8.0.2)
@@ -34,3 +42,7 @@
 | 6. Matrix multiply | 32.78 ms | 37.01 ms | 36.38 ms |
 | 7. Sigmoid | 14.40 ms | 19.76 ms | 18.14 ms |
 | 8. ReLU | 3.575 ms | 7.39 ms | 3.11 ms |
+| 9. sum by rows | 3 276 μs | 545.97 μs | 829.51 μs |
+| 10. sum by columns | 14 690 μs | 692.12 μs | 1 049 μs |
+| 11. max index in rows | 1 540 μs |  924.19 μs | 1 131 μs |
+| 12. max index in columns | 12 980 μs |  9 940 μs | 1 460 μs |

@@ -15,3 +15,7 @@ bench(repeats, iters, 'matrix transpose', @transpose, x);
 bench(repeats, iters, 'matrix multiply', @(t)(mult(t, A)), B);
 bench(repeats, iters, 'sigmoid', @sigmoid, B);
 bench(repeats, iters, 'relu', @relu, B);
+bench(repeats, iters, 'sum by rows', @(t)(sum(t, 2)), A);
+bench(repeats, iters, 'sum by columns', @(t)(sum(t, 1)), A);
+bench(repeats, iters, 'max in index in rows', @(t)(max_index(t, 2)), A);
+bench(repeats, iters, 'max index in columns', @(t)(max_index(t, 1)), A);
