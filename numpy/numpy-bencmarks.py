@@ -18,7 +18,7 @@ def relu(x):
 """
 
 def bench(description, func):
-    number = 20
+    number = 100
     u = timeit.Timer(func, setup=setup)
     res = u.repeat(number=number, repeat=10)
     res = list(map(lambda x: x/float(number), res))
