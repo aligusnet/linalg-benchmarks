@@ -32,6 +32,7 @@
 * numpy: 1.11.1 (python: 3.5.2)
 * octave: 4.0.3
 * gonum matrix: master (go: 1.8)
+* LASwift: 0.1.1 (Apple Swift 3.0.2)
 
 | Benchmark | hmatrix | numpy | octave | gonum matrix | LASwift |
 |-----------------|----------------|-----------------|-------|-------|-------|
