@@ -48,3 +48,9 @@
 | 10. sum by columns | 14.690 ms | 0.692 ms | 1.049 ms | | 13 ms |
 | 11. max index by rows | 1.540 ms |  0.924 ms | 1.131 ms | | 2 ms |
 | 12. max index by columns | 12.980 ms |  9.940 ms | 1.460 ms | | 13 ms |
+
+## TODO:
+
+* dlib (http://dlib.net)
+* eigen (http://eigen.tuxfamily.org/)
+* MKL backend
