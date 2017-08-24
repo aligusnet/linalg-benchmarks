@@ -37,6 +37,11 @@ resolver: lts-8.5
 # will not be run. This is useful for tweaking upstream packages.
 packages:
 - '.'
+- location:
+    git: https://github.com/Alexander-Ignatyev/morpheus.git
+    commit: f3f805eb7f72dd57f74d2f606c720b71fc34ad54
+  extra-dep: true
+
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
 extra-deps: []
