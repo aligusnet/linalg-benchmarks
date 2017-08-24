@@ -3,7 +3,8 @@ module Main where
 import Criterion.Main (defaultMain, bgroup, bench, nf, nfIO, whnf)
 import qualified Data.Vector.Storable as V
 import qualified Numeric.LinearAlgebra as LA
-import qualified Numeric.LinearAlgebra.Morpheus as M
+import qualified Numeric.Morpheus as M
+import qualified Numeric.Morpheus.Activation as MA
 
 
 main :: IO ()
@@ -28,6 +29,8 @@ main = do
         , bench "sum by columns" $ nf (reduceByColumns V.sum) a
         , bench "max index in rows" $ nf (reduceByRowsV (fromIntegral . LA.maxIndex) ) a
         , bench "max index in columns" $ nf (reduceByColumnsV (fromIntegral . LA.maxIndex) ) a
+        , bench "sigmoid (morpheus)" $ nf MA.sigmoid a
+        , bench "sigmoid gradient (morpheus)" $ nf MA.sigmoidGradient a
         , bench "sum by rows (morpheus)" $ nf M.rowSum a
         , bench "sum by columns (morpheus)" $ nf M.columnSum a
         , bench "max index in rows (morpheus)" $ nf M.rowMaxIndex a

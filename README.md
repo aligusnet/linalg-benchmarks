@@ -42,7 +42,7 @@
 | 4. Vector dot product | 1.965 ms | 0.80 ms | 1.07 ms | 0.990 ms | 1 ms |
 | 5. Matrix transpose | 41.80 ns | 262.0 ns | 22,860 ns | 0.65 ns | 11e9 ns |
 | 6. Matrix multiply | 32.78 ms | 37.01 ms | 36.38 ms | 185.65 ms | 30 ms |
-| 7. Sigmoid | 14.40 ms | 19.76 ms | 18.14 ms | 2 333 ms | 20 ms |
+| 7. Sigmoid | 14.40 ms (9.835 ms) | 19.76 ms | 18.14 ms | 2 333 ms | 20 ms |
 | 8. ReLU | 3.575 ms | 7.39 ms | 3.11 ms | 10.5 ms | 4 ms |
 | 9. sum by rows | 3.276 ms (1.069 ms) | 0.546 ms | 0.830 ms | | 2 ms |
 | 10. sum by columns | 14.690 ms (0.539 ms) | 0.692 ms | 1.049 ms | | 13 ms |
