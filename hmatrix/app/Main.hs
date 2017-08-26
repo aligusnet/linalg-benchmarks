@@ -4,7 +4,6 @@ import Criterion.Main (defaultMain, bgroup, bench, nf, nfIO, whnf)
 import qualified Data.Vector.Storable as V
 import qualified Numeric.LinearAlgebra as LA
 import qualified Numeric.Morpheus as M
-import qualified Numeric.Morpheus.Activation as MA
 
 
 main :: IO ()
@@ -14,7 +13,7 @@ main = do
   !x <- LA.flatten <$> LA.rand 1000 1000
   !y <- LA.flatten <$> LA.rand 1000 1000
   let !ata = LA.mTm a
-  
+
   defaultMain [
     bgroup "Linear Algebra" [
         bench "random matrix" $ nfIO (LA.rand 1000 1000)
@@ -29,8 +28,8 @@ main = do
         , bench "sum by columns" $ nf (reduceByColumns V.sum) a
         , bench "max index in rows" $ nf (reduceByRowsV (fromIntegral . LA.maxIndex) ) a
         , bench "max index in columns" $ nf (reduceByColumnsV (fromIntegral . LA.maxIndex) ) a
-        , bench "sigmoid (morpheus)" $ nf MA.sigmoid a
-        , bench "sigmoid gradient (morpheus)" $ nf MA.sigmoidGradient a
+        , bench "sigmoid (morpheus)" $ nf M.sigmoid a
+        , bench "sigmoid gradient (morpheus)" $ nf M.sigmoidGradient a
         , bench "sum by rows (morpheus)" $ nf M.rowSum a
         , bench "sum by columns (morpheus)" $ nf M.columnSum a
         , bench "max index in rows (morpheus)" $ nf M.rowMaxIndex a
@@ -66,4 +65,3 @@ reduceByRows f = LA.asColumn . reduceByRowsV f
 
 reduceByColumns :: (Vector -> R) -> Matrix -> Matrix
 reduceByColumns f = LA.asRow . reduceByColumnsV f
-
