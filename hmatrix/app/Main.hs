@@ -30,6 +30,7 @@ main = do
         , bench "max index in columns" $ nf (reduceByColumnsV (fromIntegral . LA.maxIndex) ) a
         , bench "sigmoid (morpheus)" $ nf M.sigmoid a
         , bench "sigmoid gradient (morpheus)" $ nf M.sigmoidGradient a
+        , bench "ReLU (morpheus)" $ nf M.relu a
         , bench "sum by rows (morpheus)" $ nf M.rowSum a
         , bench "sum by columns (morpheus)" $ nf M.columnSum a
         , bench "max index in rows (morpheus)" $ nf M.rowMaxIndex a
